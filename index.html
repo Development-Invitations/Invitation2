@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пригласительная 2</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 🌌 затемнение -->
+<div class="overlay"></div>
+
+<!-- 💎 Приветственный блок -->
+<div class="welcome" id="welcome">
+    <h1>Ангелина & Фаррух</h1>
+    <p>Вы приглашены на свадьбу</p>
+    <p>Нажмите, чтобы посмотреть подробности</p>
+
+    <button id="openBtn">Посмотреть подробности</button>
+</div>
+
+<!-- 📜 Чистый лист -->
+<div class="paper" id="paper">
+    <div class="paper-inner">
+        <div class="paper-bg"></div>
+        <div class="slider">
+
+            <div class="slides">
+                <!-- СЛАЙД 1 -->
+                <div class="slide active">
+                    <div class="paper-content">
+                        <div class="ornament top"></div>
+
+                        <h2>Вы приглашены на свадьбу</h2>
+
+                        <div class="divider"></div>
+
+                        <p>Мы будем рады видеть вас в этот особенный день</p>
+
+                        <div class="next-slide">Узнать подробнее ↓</div>
+
+                        <div class="ornament bottom"></div>
+                    </div>
+                </div>
+                <!-- СЛАЙД 2 -->
+                <div class="slide">
+                    <div class="paper-content">
+                        <div class="ornament top"></div>
+
+                        <h2>Место проведения</h2>
+
+                        <p>Ресторан "Golden Hall"</p>
+
+                        <div class="divider"></div>
+
+                        <p>г. Ташкент в 18:00</p>
+
+                        <div class="next-slide">Узнать подробнее ↓</div>
+
+                        <div class="ornament bottom"></div>
+                    </div>
+                </div>
+                <!-- СЛАЙД 3 -->
+                <div class="slide">
+                    <div class="paper-content">
+                
+                        <div class="ornament top"></div>
+                
+                        <h2>До нашей свадьбы осталось</h2>
+                
+                        <!-- ⏳ Таймер -->
+                        <div class="countdown" id="countdown">
+                            <div><span id="days">0</span><p>дней</p></div>
+                            <div><span id="hours">0</span><p>часов</p></div>
+                            <div><span id="minutes">0</span><p>минут</p></div>
+                            <div><span id="seconds">0</span><p>секунд</p></div>
+                        </div>
+                
+                        <div class="divider"></div>
+                
+                        <!-- 📍 Локация -->
+                        <div class="location">
+                            <h3>Место проведения</h3>
+                            <h2>Golden Hall</h2>
+                
+                            <!-- карта -->
+                            <iframe 
+                                src="https://maps.google.com/maps?q=Tashkent&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                
+                        <div class="next-slide">В начало ↓</div>
+                
+                        <div class="ornament bottom"></div>
+                
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

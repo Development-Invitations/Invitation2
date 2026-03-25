@@ -1,0 +1,407 @@
+/* 🌌 ФОН */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Georgia', serif;
+
+    background: url("../images/bg.png") center/cover no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* затемнение */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+/* 💎 БЛОК */
+.welcome {
+    position: relative;
+    z-index: 2;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+
+    padding: 40px;
+    border-radius: 16px;
+
+    color: white;
+    text-align: center;
+
+    max-width: 400px;
+    width: 90%;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+
+    transition: 0.6s;
+    margin: 20px;
+}
+
+/* текст */
+.welcome h1 {
+    margin-bottom: 10px;
+    font-size: clamp(22px, 5vw, 32px);
+}
+
+.welcome p {
+    opacity: 0.8;
+    font-size: clamp(14px, 3.5vw, 16px);
+}
+
+/* 🔘 КНОПКА */
+button {
+    width: 100%;
+    max-width: 260px;
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+
+    background: #e6c15a;
+    color: black;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* 📜 ЛИСТ */
+.paper {
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+
+    display: none;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: 0.8s ease;
+}
+
+@media (min-height: 700px) {
+    .paper {
+        align-items: center;
+    }
+}
+
+@media (max-height: 700px) {
+    .paper {
+        align-items: flex-start;
+    }
+}
+
+.paper-inner {
+    position: relative;
+    width: 100%;
+    max-width: 660px;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.paper-bg {
+    position: absolute;
+    inset: 0; /* 🔥 вместо top/bottom */
+
+    background: linear-gradient(180deg, #fffdf5, #f5ecd8);
+    border-radius: 12px;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4),
+                inset 0 0 30px rgba(0,0,0,0.08);
+
+    border: 1px solid rgba(180, 150, 80, 0.5);
+
+    z-index: 0;
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #caa23a, transparent);
+    margin: 20px auto;
+}
+
+.ornament {
+    width: 100%;
+    height: 50px;
+    margin: 15px 0;
+
+    background: url("../images/ornament.svg") center/contain no-repeat;
+    opacity: 0.8;
+}
+
+.ornament.bottom {
+    margin-top: 20px;
+}
+
+.paper-content h2 {
+    font-size: clamp(20px, 3vw, 25px);
+    letter-spacing: 1px;
+}
+
+.paper-content h3 {
+    font-size: clamp(24px, 5vw, 32px);
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.paper-content p {
+    font-size: clamp(14px, 3.5vw, 16px);
+    color: #5a4a2a;
+}
+
+.date {
+    font-size: 18px;
+    color: #3a2a10;
+}
+
+.paper-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s ease;
+}
+
+/* запуск анимации */
+.show-paper .paper-content {
+    height: auto;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.paper-content h2 {
+    color: #8d6b1f;
+}
+
+.paper-content h3 {
+    color: #8d6b1f;
+}
+
+/* 🎬 АНИМАЦИЯ */
+
+/* исчезает блок */
+.hide .welcome {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+    pointer-events: none;
+}
+
+/* 🔥 ДОБАВЬ ЭТО */
+.show-paper .welcome {
+    display: none;
+}
+
+/* появляется лист */
+.show-paper .paper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transform: scale(1);
+    z-index: 100;
+    animation: showPaper 0.6s ease forwards;
+}
+
+@keyframes showPaper {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome {
+        padding: 25px;
+        border-radius: 12px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    perspective: 1200px;
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+}
+
+/* каждый слайд */
+.slide {
+    position: relative;
+    display: none;
+    inset: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: auto;
+
+    padding: 25px;
+
+    will-change: transform, opacity;
+
+    transform-origin: left center;
+    backface-visibility: hidden;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* активный */
+.slide.active {
+    display: flex;
+    animation: fadeSlide 0.5s ease;
+
+    pointer-events: all;
+    z-index: 5;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.next-slide {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #8d6b1f;
+    cursor: pointer;
+
+    animation: pulse 1.5s infinite;
+    z-index: 5;
+}
+
+@keyframes pulse {
+    0% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(6px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.7; }
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.countdown div {
+    text-align: center;
+    min-width: 60px;
+}
+
+.countdown span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #8d6b1f;
+}
+
+.countdown p {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #5a4a2a;
+}
+
+.location {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.location h3 {
+    margin: 10px 0;
+    color: #3a2a10;
+}
+
+.location iframe {
+    width: 100%;
+    height: 180px;
+    max-height: 30vh;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .countdown span {
+        font-size: 20px;
+    }
+
+    .location iframe {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome {
+        padding: 25px;
+    }
+
+    .paper {
+        padding: 20px 0;
+    }
+
+    .slide {
+        padding: 20px 0;
+    }
+
+    .countdown {
+        gap: 10px;
+    }
+
+    .countdown div {
+        min-width: 50px;
+    }
+
+    .countdown span {
+        font-size: 18px;
+    }
+
+    .next-slide {
+        font-size: 13px;
+    }
+}
+
