@@ -186,6 +186,7 @@ button:active {
     opacity: 0;
     transform: translateY(30px);
     transition: 1s ease;
+    padding: 20px;
 }
 
 /* запуск анимации */
